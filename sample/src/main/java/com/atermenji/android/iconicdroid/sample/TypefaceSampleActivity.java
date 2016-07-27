@@ -20,8 +20,6 @@ import com.atermenji.android.iconicdroid.icon.IconicIcon;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
 
 import static android.os.Build.VERSION.SDK_INT;
@@ -88,14 +86,14 @@ public class TypefaceSampleActivity extends ListActivity {
         
         values.addAll(Arrays.asList(valuesArray));
 
-        Collections.sort(values, new Comparator<Icon>() {
-            @Override
-            public int compare(Icon t1, Icon t2) {
-                int v1 = t1.getIconUtfValue();
-                int v2 = t2.getIconUtfValue();
-                return v1==v2 ? 0 : (v1 < v2 ? -1 : 1);
-            }
-        });
+//        Collections.sort(values, new Comparator<Icon>() {
+//            @Override
+//            public int compare(Icon t1, Icon t2) {
+//                int v1 = t1.getIconUtfValue();
+//                int v2 = t2.getIconUtfValue();
+//                return v1==v2 ? 0 : (v1 < v2 ? -1 : 1);
+//            }
+//        });
         
         mAdapter = new SampleIconsAdapter(this, values);
         getListView().setAdapter(mAdapter);
