@@ -1,29 +1,9 @@
-#Android generated
-bin
-gen
-*.apk
-
-#Eclipse
-.project
-.classpath
-.settings
-
-#IntelliJ IDEA
-.idea
 *.iml
-*.ipr
-*.iws
-out
-
-#Maven
-target
-release.properties
-pom.xml.*
-
-#Ant
-build.xml
-local.properties
-proguard.cfg
-
-#OSX
+.gradle
+/local.properties
+/.idea
 .DS_Store
+/build
+/captures
+/library/build
+/sample/build
