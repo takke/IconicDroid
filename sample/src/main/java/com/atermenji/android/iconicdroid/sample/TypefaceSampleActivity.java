@@ -1,10 +1,5 @@
 package com.atermenji.android.iconicdroid.sample;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import static android.os.Build.VERSION.SDK_INT;
-import static android.os.Build.VERSION_CODES.JELLY_BEAN;
 import android.app.ListActivity;
 import android.content.Context;
 import android.content.Intent;
@@ -22,6 +17,15 @@ import com.atermenji.android.iconicdroid.icon.EntypoSocialIcon;
 import com.atermenji.android.iconicdroid.icon.FontAwesomeIcon;
 import com.atermenji.android.iconicdroid.icon.Icon;
 import com.atermenji.android.iconicdroid.icon.IconicIcon;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+
+import static android.os.Build.VERSION.SDK_INT;
+import static android.os.Build.VERSION_CODES.JELLY_BEAN;
 
 public class TypefaceSampleActivity extends ListActivity {
     
@@ -83,6 +87,15 @@ public class TypefaceSampleActivity extends ListActivity {
         }
         
         values.addAll(Arrays.asList(valuesArray));
+
+        Collections.sort(values, new Comparator<Icon>() {
+            @Override
+            public int compare(Icon t1, Icon t2) {
+                int v1 = t1.getIconUtfValue();
+                int v2 = t2.getIconUtfValue();
+                return v1==v2 ? 0 : (v1 < v2 ? -1 : 1);
+            }
+        });
         
         mAdapter = new SampleIconsAdapter(this, values);
         getListView().setAdapter(mAdapter);
@@ -108,6 +121,7 @@ public class TypefaceSampleActivity extends ListActivity {
                 convertView = mInflater.inflate(R.layout.list_item_iconic, null);
                 holder = new ViewHolder();
                 holder.title = (TextView) convertView.findViewById(R.id.tv_title);
+                holder.dump = (TextView) convertView.findViewById(R.id.tv_hex);
                 holder.icon = convertView.findViewById(R.id.view_icon);
                 convertView.setTag(holder);
             } else {
@@ -124,12 +138,16 @@ public class TypefaceSampleActivity extends ListActivity {
 			} else {
 				holder.icon.setBackground(iconicFontDrawable);
 			}
+
+            holder.dump.setText(Integer.toHexString(icon.getIconUtfValue()));
+
             return convertView;
         }
         
         private class ViewHolder {
             
             public TextView title;
+            public TextView dump;
             public View icon;
             
         }

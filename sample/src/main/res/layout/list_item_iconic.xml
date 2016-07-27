@@ -10,15 +10,24 @@
 		android:layout_height="wrap_content"
 		android:layout_alignParentLeft="true"
 		android:layout_centerVertical="true"
-		android:layout_marginLeft="5dp"
+		android:layout_marginLeft="4dp"
 		android:textSize="20sp" />
 
-    <View
+	<TextView
+		android:id="@+id/tv_hex"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_toLeftOf="@+id/view_icon"
+		android:layout_centerVertical="true"
+		android:layout_marginRight="8dp"
+		android:textSize="20sp" />
+
+	<View
         android:id="@+id/view_icon"
         android:layout_width="35dp"
         android:layout_height="35dp"
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
-        android:layout_marginRight="5dp"/>
+        android:layout_marginRight="4dp"/>
 
 </RelativeLayout>
