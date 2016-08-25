@@ -249,7 +249,7 @@ public class IconicFontDrawable extends Drawable {
         mIconPaint.setTextSize(textSize);
 
         mPath.reset();		// hack for Kindle HDX
-        
+
         mIconPaint.getTextPath(mIconUtfChars, 0, mIconUtfChars.length,
                 0, viewBounds.height(), mPath);
         mPath.computeBounds(mPathBounds, true);
@@ -262,6 +262,10 @@ public class IconicFontDrawable extends Drawable {
         float startY = viewBounds.centerY() - (mPathBounds.height() / 2);
         float offsetY = startY - (mPathBounds.top);
 
-        mPath.offset(offsetX, offsetY);
+        // use Path.transform instead of Path.offset
+        // to fix issue of Android N : https://code.google.com/p/android/issues/detail?id=216803
+        final Matrix mat = new Matrix();
+        mat.setTranslate(offsetX, offsetY);
+        mPath.transform(mat);
     }
 }
