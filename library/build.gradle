@@ -20,6 +20,6 @@ android {
 
 dependencies {
 //    implementation fileTree(dir: 'libs', include: ['*.jar'])
-//    testCompile library.junit
+//    testCompile "junit:junit:$junitVersion"
 //    compile 'com.android.support:appcompat-v7:23.4.0'
 }
