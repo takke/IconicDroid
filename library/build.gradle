@@ -7,8 +7,6 @@ android {
     defaultConfig {
         targetSdkVersion rootProject.ext.targetSdkVersion as Integer
         minSdkVersion rootProject.ext.minSdkVersion as Integer
-        versionCode 1
-        versionName "1.0"
     }
     buildTypes {
         release {
