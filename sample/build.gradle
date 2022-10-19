@@ -1,6 +1,8 @@
 apply plugin: 'com.android.application'
 
 android {
+    namespace 'com.atermenji.android.iconicdroid.sample'
+
     compileSdkVersion 17
     buildToolsVersion "23.0.3"
 
