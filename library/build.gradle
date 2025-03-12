@@ -1,10 +1,10 @@
 apply plugin: 'com.android.library'
 
 android {
-    namespace 'com.atermenji.android.iconicdroid'
+    namespace = 'com.atermenji.android.iconicdroid'
 
-    compileSdkVersion rootProject.ext.compileSdkVersion as Integer
-    buildToolsVersion rootProject.ext.buildToolsVersion as String
+    compileSdkVersion = rootProject.ext.compileSdkVersion as Integer
+    buildToolsVersion = rootProject.ext.buildToolsVersion as String
 
     defaultConfig {
         targetSdkVersion rootProject.ext.targetSdkVersion as Integer
